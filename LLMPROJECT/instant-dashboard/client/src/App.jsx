@@ -12,6 +12,10 @@ import ErrorAlert from './components/ErrorAlert';
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 const API_URL = `${API_BASE_URL.replace(/\/$/, '')}/api/generate-dashboard`;
 
+// Helpful for debugging Netlify/Render configuration
+console.log('[InstantDashboard] API_BASE_URL =', API_BASE_URL);
+console.log('[InstantDashboard] API_URL =', API_URL);
+
 function App() {
   
   const [jsonInput, setJsonInput] = useState('');
@@ -122,6 +126,9 @@ function App() {
 
       <footer className="app-footer">
         <p>Powered by OpenAI • Built with React & Express</p>
+        <p style={{ fontSize: '0.75rem', opacity: 0.7 }}>
+          Backend: <code>{API_BASE_URL}</code>
+        </p>
       </footer>
     </div>
   );

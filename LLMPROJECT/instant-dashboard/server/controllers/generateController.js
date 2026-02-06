@@ -38,14 +38,7 @@ export async function generateDashboardController(req, res) {
   } catch (error) {
     console.error('Controller Error:', error);
     
-    // Handle OpenAI API errors
-    if (error.message.includes('API key')) {
-      return res.status(500).json({
-        error: 'OpenAI API key not configured properly'
-      });
-    }
-
-    // Generic error response
+    // Generic error response (demo/real)
     res.status(500).json({
       error: error.message || 'Failed to generate dashboard'
     });

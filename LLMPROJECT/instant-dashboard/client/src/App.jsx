@@ -6,7 +6,11 @@ import GenerateButton from './components/GenerateButton';
 import PreviewFrame from './components/PreviewFrame';
 import ErrorAlert from './components/ErrorAlert';
 
-const API_URL = 'http://localhost:3000/api/generate-dashboard';
+// Base URL for the backend API:
+// - In development, defaults to http://localhost:3000
+// - In production (Netlify), set VITE_API_URL in environment variables
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = `${API_BASE_URL.replace(/\/$/, '')}/api/generate-dashboard`;
 
 function App() {
   
